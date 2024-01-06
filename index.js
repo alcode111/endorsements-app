@@ -35,6 +35,8 @@ onValue(endorsementsInDB, function(snapshot) {
     Object.entries(snapshot.val()) : 
     [{key: "noItems", value: "No endorsements... yet" }]
 
+    endorsementsArray.reverse()
+
     clearEndorsementsUl()
 
     for(let i = 0; i < endorsementsArray.length; i++) {
