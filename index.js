@@ -22,8 +22,12 @@ publishButton.addEventListener('click', function() {
         from: fromInput.value.trim(),
         to: toInput.value.trim()
     }
-    push(endorsementsInDB, userInput)
-    clearAllInputs()
+    if (userInput.text !== "" && userInput.from !== "" && userInput.to !== "") {
+        push(endorsementsInDB, userInput)
+        clearAllInputs()
+    } else {
+        alert("Veuillez compléter toutes les entrées")
+    }
 })
 
 function clearAllInputs() {
