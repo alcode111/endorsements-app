@@ -30,6 +30,59 @@ publishButton.addEventListener('click', function() {
     }
 })
 
+onValue(endorsementsInDB, function(snapshot) {
+    let endorsementsArray = snapshot.val() ? 
+    Object.entries(snapshot.val()) : 
+    [{key: "noItems", value: "No endorsements... yet" }]
+
+    clearEndorsementsUl()
+
+    for(let i = 0; i < endorsementsArray.length; i++) {
+        let currentEndorsement = endorsementsArray[i]
+
+        if (currentEndorsement.key !== "noItems") {
+            let currentEndorsementID = endorsementsArray[i][0]
+            let currentEndorsementValue = endorsementsArray[i][1]
+            appendEndorsementLiToEndorsementsUl(currentEndorsementValue, currentEndorsementID)
+        } else {
+            endorsementsUL.innerHTML = `<i style="color: #8F8F8F;">${currentEndorsement.value}</i>`
+        }
+    }
+})
+
+function appendEndorsementLiToEndorsementsUl(endorsementValue, endorsementID) {
+    let newEndorsementLi = document.createElement("li")
+
+    let toDiv = document.createElement("div")
+    toDiv.textContent = "To " + endorsementValue.to
+    toDiv.style.fontSize = "14px"
+    toDiv.style.fontWeight = "bold"
+    toDiv.style.margin = "8px 0"
+    newEndorsementLi.append(toDiv)
+
+    let textDiv = document.createElement("div")
+    textDiv.textContent = endorsementValue.text
+    newEndorsementLi.append(textDiv)
+
+    let fromDiv = document.createElement("div")
+    fromDiv.textContent = "From " + endorsementValue.from
+    fromDiv.style.fontSize = "14px"
+    fromDiv.style.fontWeight = "bold"
+    fromDiv.style.margin = "8px 0"
+    newEndorsementLi.append(fromDiv)
+
+    endorsementsUL.append(newEndorsementLi)
+
+    newEndorsementLi.addEventListener('click', function() {
+        let endorsementExactLocationInDB = ref(database, `endorsements/${endorsementID}`)
+        remove(endorsementExactLocationInDB)
+    })
+}
+
+function clearEndorsementsUl() {
+    endorsementsUL.innerHTML = ""
+}
+
 function clearAllInputs() {
     textAreaEl.value = ""
     fromInput.value = ""
