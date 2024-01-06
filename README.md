@@ -1,1 +1,1 @@
-# endorsements-app
+We will create a web application where users can write endorsements and have them displayed. There will be three inputs: a text area on top, along with "From" and "To" inputs, to add additional details to the endorsement messages. All data will be saved in an online database called Firebase, enabling real-time updates for the web app.
