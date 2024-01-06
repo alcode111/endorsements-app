@@ -23,3 +23,44 @@ body {
     gap: 8px;
 }
 
+img {
+    width: 150px;
+    margin: 0 auto;
+}
+
+#title {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#endorsement-textarea {
+    width: 317px;
+    height: 118px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    background: #1A1A1A;
+    color: #D0D0D0;
+    padding: 8px;
+}
+
+#inputs-container {
+    display: flex;
+    gap: 8px;
+}
+
+#from-input, #to-input {
+    flex-grow: 1;
+    width: 152px;
+    height: 40px;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    background: #1A1A1A;
+    color: #D0D0D0;
+}
+
+#endorsement-textarea::placeholder, #from-input::placeholder, #to-input::placeholder {
+    color: #8F8F8F;
+}
