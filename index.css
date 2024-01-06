@@ -64,3 +64,33 @@ img {
 #endorsement-textarea::placeholder, #from-input::placeholder, #to-input::placeholder {
     color: #8F8F8F;
 }
+
+#publish-btn {
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Josefin sans';
+    font-size: 20px;
+    background: #28A9F1;
+}
+
+h3 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0
+}
+
+ul li {
+    background: #FFFFFF;
+    color: #1B1924;
+    font-family: 'Inter', sans-serif;
+    padding: 10px;
+    text-align: left;
+    margin: 8px 0;
+}
