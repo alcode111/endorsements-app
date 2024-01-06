@@ -73,7 +73,7 @@ function appendEndorsementLiToEndorsementsUl(endorsementValue, endorsementID) {
 
     endorsementsUL.append(newEndorsementLi)
 
-    newEndorsementLi.addEventListener('click', function() {
+    newEndorsementLi.addEventListener('dblclick', function() {
         let endorsementExactLocationInDB = ref(database, `endorsements/${endorsementID}`)
         remove(endorsementExactLocationInDB)
     })
