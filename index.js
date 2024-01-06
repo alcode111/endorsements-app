@@ -15,3 +15,19 @@ const fromInput = document.getElementById("from-input")
 const toInput = document.getElementById("to-input")
 const publishButton = document.getElementById("publish-btn")
 const endorsementsUL = document.getElementById("endorsements-ul")
+
+publishButton.addEventListener('click', function() {
+    let userInput = {
+        text: textAreaEl.value.trim(),
+        from: fromInput.value.trim(),
+        to: toInput.value.trim()
+    }
+    push(endorsementsInDB, userInput)
+    clearAllInputs()
+})
+
+function clearAllInputs() {
+    textAreaEl.value = ""
+    fromInput.value = ""
+    toInput.value = ""
+}
